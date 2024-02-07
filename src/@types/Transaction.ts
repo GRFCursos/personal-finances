@@ -1,7 +1,8 @@
+export type TransactionStatus = "pending" | "completed"
 export type Transaction = {
     id: number,
     title: string,
-    status: "pending" | "completed",
+    status: TransactionStatus,
     amount: number,
     created_at: number,
     user_id: number
