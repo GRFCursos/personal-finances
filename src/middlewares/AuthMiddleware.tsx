@@ -1,14 +1,14 @@
 import { ReactElement } from "react"
-import { useAuth } from "../hooks/auth"
 import { Navigate } from "react-router-dom"
 import { Loading } from "../components/Loading"
+import { useAppSelector } from "../redux/hooks"
 
 type Props = {
     children: ReactElement
 }
 
 export const AuthMiddleware = ({ children }: Props) => {
-    const { authStatus } = useAuth()
+    const { authStatus } = useAppSelector(state => state.auth)
 
     if (authStatus == 'authenticated') {
         return children
