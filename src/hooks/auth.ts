@@ -1,7 +1,7 @@
 import { User } from "../@types/Auth"
 import { useAppDispatch } from "../redux/hooks"
 import { setAuthStatus, setAuthToken, setUser } from "../redux/slices/authSlice"
-import { signIn, signUp } from "../services/requests"
+import { getUser, signIn, signUp } from "../services/requests"
 
 const LOCAL_STORAGE_KEY = import.meta.env.VITE_LOCAL_STORAGE_AUTH_KEY
 
@@ -18,7 +18,21 @@ export const useAuth = () => {
     }
 
     // Get token from local storage
-    const getToken = () => localStorage.getItem(LOCAL_STORAGE_KEY)
+    const handleGetToken = () => localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    // Get the user using the authToken saved in local storage
+    const handleAuthenticateUser = async () => {
+        const request = await getUser()
+        const authToken = handleGetToken()
+
+        if (!request.data || !authToken) {
+            dispatch(setAuthStatus('not_authenticated'))
+            return;
+        };
+
+        const { data } = request;
+        authenticate(data.user, authToken)
+    }
 
     // Function to signIn
     const handleSignIn = async ({ email, password }: { email: string, password: string }) => {
@@ -60,7 +74,8 @@ export const useAuth = () => {
     }
 
     return {
-        getToken,
+        handleGetToken,
+        handleAuthenticateUser,
         handleSignIn,
         handleSignUp,
         handleSignOut

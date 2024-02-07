@@ -14,14 +14,14 @@ export const api = async <TypeResponse>({
     data,
     withAuth = true
 }: Props) => {
-    const { getToken } = useAuth()
+    const { handleGetToken } = useAuth()
 
     const instance = axios.create({
         baseURL: import.meta.env.VITE_API_BASE_URL
     })
 
     if (withAuth) {
-        instance.defaults.headers.common['Authorization'] = getToken();
+        instance.defaults.headers.common['Authorization'] = handleGetToken();
     }
 
     try {
