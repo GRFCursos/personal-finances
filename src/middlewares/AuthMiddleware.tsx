@@ -1,10 +1,10 @@
-import { ReactElement } from "react"
+import { ReactNode } from "react"
 import { Navigate } from "react-router-dom"
 import { Loading } from "../components/Loading"
 import { useAppSelector } from "../redux/hooks"
 
 type Props = {
-    children: ReactElement
+    children: ReactNode
 }
 
 export const AuthMiddleware = ({ children }: Props) => {

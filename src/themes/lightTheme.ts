@@ -22,6 +22,7 @@ export const lightTheme = {
         violet700: '#3821C0',
         violet800: '#120563',
         violet900: '#191A38',
+        violet1000: '#080325',
 
         /* Green */
         green100: '#F9FDFA',

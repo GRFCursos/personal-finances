@@ -15,11 +15,6 @@ export const Container = styled.div`
     justify-content: center;
     gap: 20px;
     width: 420px;
-
-    @media (max-width: 480px) {
-        width: 100%;
-        margin: 0 10px;
-    }
 `
 
 export const ErrorAlert = styled.div`

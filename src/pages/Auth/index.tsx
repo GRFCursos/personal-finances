@@ -97,7 +97,7 @@ export const Auth = ({ type }: Props) => {
                     </CardBody>
 
                     <CardFooter>
-                        <Button onClick={handleOnClick}>
+                        <Button onClick={handleOnClick} size="md">
                             {type == 'signin' ? 'Entrar' : 'Registrar-se'}
                         </Button>
 
