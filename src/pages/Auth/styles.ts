@@ -1,16 +1,46 @@
 import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom"
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     background-color: ${(props) => props.theme.COLORS.neutral400};
-    height: 100vh;
-    width: 100%;
-    display: flex; 
-    align-items: center;
+    min-height: 100vh;
+    display: flex;
     justify-content: center; 
 `
 
+export const Container = styled.div`
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 420px;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        margin: 0 10px;
+    }
+`
+
+export const ErrorAlert = styled.div`
+    width: 100%;
+    display: flex;  
+    gap: 5px;
+    background-color: ${(props) => props.theme.COLORS.red500};
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: ${(props) => props.theme.COLORS.neutral100};
+    font-size: ${(props) => props.theme.FONT_SIZES.sm};
+    font-weight: 700; 
+
+    .icon {
+        font-size: ${(props) => props.theme.FONT_SIZES.lg};
+    }
+`
+
 export const Card = styled.div`
+    width: 100%;
     background-color: ${(props) => props.theme.COLORS.neutral100};
     padding: 30px;
     box-shadow: ${(props) => props.theme.COLORS.neutral900} 0px 3px 7px -6px;
@@ -19,13 +49,8 @@ export const Card = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    width: 360px;
-
-    @media (max-width: 440px) {
-        width: fit-content;
-        margin: 0 10px;
-    }
+    gap: 30px; 
+    box-sizing: border-box;
 `
 
 export const CardHeader = styled.div`

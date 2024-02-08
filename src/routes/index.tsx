@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { Home } from "../pages/Home"
-import { SignIn } from "../pages/Auth/SignIn"
-import { SignUp } from "../pages/Auth/SignUp"
 import { AuthMiddleware } from "../middlewares/AuthMiddleware"
+import { Auth } from "../pages/Auth"
 
 export const MainRoutes = () => {
     return (
@@ -18,12 +17,12 @@ export const MainRoutes = () => {
 
             <Route
                 path="/signin"
-                element={<SignIn />}
+                element={<Auth type="signin" />}
             />
 
             <Route
                 path="/signup"
-                element={<SignUp />}
+                element={<Auth type="signup" />}
             />
         </Routes>
     )

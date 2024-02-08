@@ -1,5 +1,4 @@
-import axios, { AxiosError } from "axios"
-import { useAuth } from "../hooks/auth"
+import axios, { AxiosError } from "axios" 
 
 type Props = {
     endpoint: string,
@@ -13,15 +12,13 @@ export const api = async <TypeResponse>({
     method = 'GET',
     data,
     withAuth = true
-}: Props) => {
-    const { handleGetToken } = useAuth()
-
+}: Props) => { 
     const instance = axios.create({
         baseURL: import.meta.env.VITE_API_BASE_URL
     })
 
     if (withAuth) {
-        instance.defaults.headers.common['Authorization'] = handleGetToken();
+        instance.defaults.headers.common['Authorization'] = localStorage.getItem(import.meta.env.VITE_LOCAL_STORAGE_AUTH_KEY);
     }
 
     try {
