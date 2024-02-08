@@ -44,5 +44,12 @@ export const lightTheme = {
         red700: '#A0310F',
         red800: '#87280A',
         red900: '#471104',
+    },
+    FONT_SIZES: {
+        sm: '.9rem',
+        md: '1rem',
+        lg: '1.3rem',
+        xl: '1.6rem',
+        xxl: '2rem',
     }
 }

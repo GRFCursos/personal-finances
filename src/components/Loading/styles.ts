@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
     background-color: ${(props) => props.theme.COLORS.neutral400};
     height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
