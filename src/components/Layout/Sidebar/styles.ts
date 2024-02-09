@@ -5,7 +5,7 @@ import { Link as LinkRouter } from "react-router-dom";
 export const Container = styled.div<{ $expanded: boolean }>`
     display: flex;
     flex-direction: column; 
-    background-color: ${(props) => props.theme.COLORS.violet1000};
+    background-color: ${(props) => props.theme.COLORS.sidebarBackground};
     width: ${(props) => props.$expanded ? '300px' : '80px'};
     transition: all .6s; 
 `
@@ -27,7 +27,8 @@ export const Header = styled.div`
 export const HeaderLogo = styled.img``
 
 export const HeaderIcon = styled(GiHamburgerMenu)`
-    font-size: ${(props) => props.theme.FONT_SIZES.md};
+    font-size: ${(props) => props.theme.FONT_SIZES.md}; 
+    color: ${(props) => props.theme.COLORS.sidebarColor};
 `
 
 export const Navigation = styled.div`
@@ -45,11 +46,11 @@ export const NavigationItem = styled.div<{ $isActive: boolean }>`
     border-radius: 4px; 
     cursor: pointer; 
     overflow: hidden;
-    color: ${(props) => props.theme.COLORS.neutral500};
-    background: ${(props) => props.$isActive && `${props.theme.COLORS.violet900}`};
+    color: ${(props) => props.theme.COLORS.sidebarColor};
+    background: ${(props) => props.$isActive && `${props.theme.COLORS.sidebarBackgroundHover}`};
  
     &:hover {
-        background-color: ${(props) => props.theme.COLORS.violet900};
+        background-color: ${(props) => props.theme.COLORS.sidebarBackgroundHover};
     }
 `
 
@@ -66,7 +67,7 @@ export const NavigationItemLabel = styled.span`
 `
 
 export const Footer = styled.div`  
-    border-top: 1px solid ${(props) => props.theme.COLORS.neutral900};
+    border-top: 1px solid ${(props) => props.theme.COLORS.sidebarBorderColor};
     margin: 10px; 
 `
 
@@ -80,7 +81,7 @@ export const User = styled.div`
     cursor: pointer;
     
     &:hover {
-        background-color: ${(props) => props.theme.COLORS.violet900};
+        background-color: ${(props) => props.theme.COLORS.sidebarBackgroundHover};
     }
 `
 
@@ -92,14 +93,14 @@ export const UserAvatar = styled.div`
     min-height: 38px;
     border-radius: 50%;
     text-transform: uppercase;
-    background-color: ${(props) => props.theme.COLORS.violet500};
-    color: ${(props) => props.theme.COLORS.neutral100};
+    background-color: ${(props) => props.theme.COLORS.primary};
+    color: ${(props) => props.theme.COLORS.sidebarColor};
     font-weight: 700;
 `
 
 export const UserName = styled.span`
     flex: 1;
-    color: ${(props) => props.theme.COLORS.neutral400};
+    color: ${(props) => props.theme.COLORS.sidebarColor};
     font-weight: 600;
     white-space: nowrap;
     text-overflow: ellipsis;

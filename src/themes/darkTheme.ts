@@ -2,17 +2,51 @@ import { DefaultTheme } from "styled-components"
 
 export const darkTheme: DefaultTheme = {
     COLORS: {
-        /* Neutral */
-        neutral100: '#FFFFFF',
-        neutral200: '#F8FAFC',
-        neutral300: '#EFF2F6',
-        neutral400: '#E2E8F0',
-        neutral500: '#CBCFD5',
-        neutral600: '#A4A9B0',
-        neutral700: '#79808A',
-        neutral800: '#5B6776',
-        neutral900: '#344055',
-        neutral1000: '#121212',
+        /* Application */
+        primary: '#473FCE',
+        primaryHover: '#8880E5',
+
+        /* Application Components */
+        buttonBackground: '#473FCE',
+        buttonColor: '#FFFFFF',
+        buttonHover: '#4F46E5',
+        inputBackground: 'transparent',
+        inputBackgroundHover: 'transparent',
+        inputColor: '#cfcfcf',
+        inputBorderColor: '#4F46E573',
+        inputBorderColorFocus: '#4F46E5',
+        inputPlaceholderColor: '#a3a3a3',
+
+        /* Loading */
+        loadingBackground: '#080325',
+        loadingColor: '#cfcfcf',
+
+        /* Layout */
+        sidebarBackground: '#080325',
+        sidebarColor: '#E2E8F0',
+        sidebarBackgroundHover: '#191A38',
+        sidebarBorderColor: '#344055',
+        navbarBackground: '#080325',
+        navbarColor: '#cfcfcf',
+        navbarBackgroundHover: '#191A38',
+        navbarBorderColor: '#E2E8F0',
+
+        /* Pages - Auth */
+        authBackground: '#080325',
+        authCardBackground: '#212121',
+        authCardTitleColor: '#c9cbcf',
+        authCardSubTitleColor: '#7d848c',
+        authErrorAlertBackground: '#961408ed',
+        authErrorAlertColor: '#FFFFFF',
+
+
+
+
+
+
+
+
+
 
         /* Violet */
         violet100: '#FCFDFE',

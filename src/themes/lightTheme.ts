@@ -1,5 +1,49 @@
 export const lightTheme = {
     COLORS: {
+        /* Application */
+        primary: '#473FCE',
+        primaryHover: '#8880E5',
+
+        /* Application Components */
+        buttonBackground: '#473FCE',
+        buttonColor: '#FFFFFF',
+        buttonHover: '#4F46E5',
+        inputBackground: '#FFFFFF',
+        inputBackgroundHover: '#F8FAFC',
+        inputColor: '#5B6776',
+        inputBorderColor: '#E2E8F0',
+        inputBorderColorFocus: '#4F46E5',
+        inputPlaceholderColor: '#79808A',
+
+        /* Loading */
+        loadingBackground: '#E2E8F0',
+        loadingColor: '#5B6776',
+
+        /* Layout */
+        sidebarBackground: '#080325',
+        sidebarColor: '#E2E8F0',
+        sidebarBackgroundHover: '#191A38',
+        sidebarBorderColor: '#344055',
+        navbarBackground: '#F8FAFC',
+        navbarColor: '#344055',
+        navbarBackgroundHover: '#E2E8F0',
+        navbarBorderColor: '#E2E8F0',
+
+        /* Pages - Auth */
+        authBackground: '#E2E8F0',
+        authCardBackground: '#FFFFFF',
+        authCardTitleColor: '#344055',
+        authCardSubTitleColor: '#5B6776',
+        authErrorAlertBackground: '#D1493D',
+        authErrorAlertColor: '#FFFFFF',
+
+
+
+
+
+
+        
+
         /* Neutral */
         neutral100: '#FFFFFF',
         neutral200: '#F8FAFC',

@@ -7,7 +7,7 @@ export const Loading = () => {
 
     return (
         <Container>
-            <HashLoader color={theme.COLORS.violet500} />
+            <HashLoader color={theme.COLORS.primary} />
             <Label>Por favor aguarde ...</Label>
         </Container>
     )

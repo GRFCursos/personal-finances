@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom"
 
 export const Wrapper = styled.div`
-    background-color: ${(props) => props.theme.COLORS.neutral400};
+    background-color: ${(props) => props.theme.COLORS.authBackground};
     min-height: 100vh;
     display: flex;
     justify-content: center; 
@@ -21,11 +21,11 @@ export const ErrorAlert = styled.div`
     width: 100%;
     display: flex;  
     gap: 5px;
-    background-color: ${(props) => props.theme.COLORS.red500};
+    background-color: ${(props) => props.theme.COLORS.authErrorAlertBackground};
     padding: 15px;
     box-sizing: border-box;
     border-radius: 4px;
-    color: ${(props) => props.theme.COLORS.neutral100};
+    color: ${(props) => props.theme.COLORS.authErrorAlertColor};
     font-size: ${(props) => props.theme.FONT_SIZES.sm};
     font-weight: 700; 
 
@@ -36,9 +36,9 @@ export const ErrorAlert = styled.div`
 
 export const Card = styled.div`
     width: 100%;
-    background-color: ${(props) => props.theme.COLORS.neutral100};
+    background-color: ${(props) => props.theme.COLORS.authCardBackground};
     padding: 30px;
-    box-shadow: ${(props) => props.theme.COLORS.neutral900} 0px 3px 7px -6px;
+    box-shadow: black 0px 3px 7px -6px;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -58,12 +58,12 @@ export const CardHeader = styled.div`
 export const CardTitle = styled.span` 
     font-size: ${(props) => props.theme.FONT_SIZES.lg}; 
     font-weight: 800;
-    color: ${(props) => props.theme.COLORS.neutral900};
+    color: ${(props) => props.theme.COLORS.authCardTitleColor};
 `
 
 export const CardSubTitle = styled.span` 
     font-size: ${(props) => props.theme.FONT_SIZES.sm};
-    color: ${(props) => props.theme.COLORS.neutral800};
+    color: ${(props) => props.theme.COLORS.authCardSubTitleColor};
     font-weight: 600;
 `
 
@@ -84,5 +84,5 @@ export const CardFooter = styled.div`
 `
 export const Link = styled(LinkRouter)`
     font-size: ${(props) => props.theme.FONT_SIZES.sm};
-    color: ${(props) => props.theme.COLORS.violet500};
+    color: ${(props) => props.theme.COLORS.primary};
 `

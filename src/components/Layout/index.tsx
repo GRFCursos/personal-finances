@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom"
 import { AuthMiddleware } from "../../middlewares/AuthMiddleware"
-import { Container } from "./styles"
+import { BodyContent, NavbarContent, Container, Content } from "./styles"
 import { Sidebar } from "./Sidebar"
+import { Navbar } from "./Navbar"
 
 export const Layout = () => {
     return (
@@ -9,9 +10,15 @@ export const Layout = () => {
             <Container>
                 <Sidebar />
 
-                
+                <Content>
+                    <NavbarContent>
+                        <Navbar />
+                    </NavbarContent>
 
-                <Outlet />
+                    <BodyContent>
+                        <Outlet />
+                    </BodyContent>
+                </Content>
             </Container>
         </AuthMiddleware>
     )
