@@ -29,7 +29,7 @@ export const darkTheme: DefaultTheme = {
         navbarBackground: '#080325',
         navbarColor: '#cfcfcf',
         navbarBackgroundHover: '#191A38',
-        navbarBorderColor: '#E2E8F0',
+        navbarBorderColor: '#344055',
 
         /* Pages - Auth */ 
         authCardBackground: '#212121',

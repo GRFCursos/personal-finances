@@ -6,7 +6,7 @@ export const Container = styled.div<{ $expanded: boolean }>`
     display: flex;
     flex-direction: column; 
     background-color: ${(props) => props.theme.COLORS.sidebarBackground};
-    width: ${(props) => props.$expanded ? '300px' : '80px'};
+    width: ${(props) => props.$expanded ? '300px' : '79px'};
     transition: all .6s; 
 `
 
@@ -64,6 +64,7 @@ export const NavigationItemLabel = styled.span`
     align-items: center; 
     font-size: ${(props) => props.theme.FONT_SIZES.md};
     font-weight: 700;
+    white-space: nowrap;
 `
 
 export const Footer = styled.div`  

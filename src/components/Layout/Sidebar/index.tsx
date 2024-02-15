@@ -15,12 +15,16 @@ import {
     UserName
 } from "./styles"
 import { MdOutlineDashboard } from "react-icons/md";
+import { MdOutlineAddTask } from "react-icons/md";
+import { MdOutlineListAlt } from "react-icons/md";
 import { useState } from "react";
 import { useAppSelector } from "../../../redux/hooks";
 import { useLocation } from "react-router-dom";
 
 const menuItems = [
-    { label: 'Dashboard', url: '/', icon: <MdOutlineDashboard /> }
+    { label: 'Dashboard', url: '/', icon: <MdOutlineDashboard /> },
+    { label: 'Nova Transação', url: '/nova-transacao', icon: <MdOutlineAddTask /> },
+    { label: 'Transações', url: '/transacoes', icon: <MdOutlineListAlt /> }
 ]
 
 export const Sidebar = () => {
