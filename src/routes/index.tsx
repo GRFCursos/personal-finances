@@ -22,10 +22,17 @@ export const MainRoutes = () => {
                     index
                     element={<Home />}
                 />
-                <Route
-                    path="nova-transacao"
-                    element={<NewTransaction />}
-                />
+
+                <Route path="/transacoes">
+                    <Route
+                        path="nova"
+                        element={<NewTransaction />}
+                    />
+
+                    <Route
+                        path=":id/editar"
+                    />
+                </Route>
             </Route>
 
             <Route

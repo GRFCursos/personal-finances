@@ -14,7 +14,7 @@ import {
 import { Button } from "../../components/Button"
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
-import Error from "../../components/Alert";
+import Alert from "../../components/Alert";
 
 type Props = {
     type: 'signin' | 'signup'
@@ -24,7 +24,7 @@ export const Auth = ({ type }: Props) => {
     const [nameInput, setNameInput] = useState('')
     const [emailInput, setEmailInput] = useState('')
     const [passwordInput, setPasswordInput] = useState('')
-    const [errorMessage, setErrorMessage] = useState('')
+    const [showAlert, setShowAlert] = useState({ type: "error", message: "", show: false })
 
     const { handleSignIn, handleSignUp } = useAuth()
 
@@ -34,14 +34,14 @@ export const Auth = ({ type }: Props) => {
         const [name, email, password] = [nameInput, emailInput, passwordInput]
 
         if ((type == 'signup' && !name) || !email || !password) {
-            setErrorMessage('Preencha todos os campos!')
+            setShowAlert({ type: 'error', message: 'Preencha todos os campos!', show: true })
             return;
         }
 
         const request = await (type == 'signin' ? handleSignIn({ email, password }) : handleSignUp({ name, email, password }))
 
         if (request != true) {
-            setErrorMessage(request)
+            setShowAlert({ type: 'error', message: request, show: true })
             return;
         }
 
@@ -50,13 +50,18 @@ export const Auth = ({ type }: Props) => {
     }
 
     useEffect(() => {
-        setErrorMessage('')
+        setShowAlert({ type: 'error', message: '', show: false })
     }, [type])
 
     return (
         <Wrapper>
             <Container>
-                {errorMessage && <Error message={errorMessage} />}
+                <Alert
+                    type={showAlert.type}
+                    show={showAlert.show}
+                    setShow={show => setShowAlert({ ...showAlert, show })}
+                    title={showAlert.message}
+                />
 
                 <Card>
                     <CardHeader>

@@ -23,7 +23,7 @@ import { useLocation } from "react-router-dom";
 
 const menuItems = [
     { label: 'Dashboard', url: '/', icon: <MdOutlineDashboard /> },
-    { label: 'Nova Transação', url: '/nova-transacao', icon: <MdOutlineAddTask /> },
+    { label: 'Nova Transação', url: '/transacoes/nova', icon: <MdOutlineAddTask /> },
     { label: 'Transações', url: '/transacoes', icon: <MdOutlineListAlt /> }
 ]
 
