@@ -3,6 +3,7 @@ import { Home } from "../pages/Home"
 import { Auth } from "../pages/Auth"
 import { Layout } from "../components/Layout"
 import { NewTransaction } from "../pages/Transaction/New"
+import { NotFound } from "../pages/NotFound"
 
 export const MainRoutes = () => {
     return (
@@ -26,6 +27,12 @@ export const MainRoutes = () => {
                     element={<NewTransaction />}
                 />
             </Route>
+
+
+            <Route
+                path="*"
+                element={<NotFound />}
+            />
         </Routes>
     )
 }
