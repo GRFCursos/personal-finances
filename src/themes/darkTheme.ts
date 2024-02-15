@@ -5,6 +5,7 @@ export const darkTheme: DefaultTheme = {
         /* Application */
         primary: '#473FCE',
         primaryHover: '#8880E5',
+        pageBackground: '#080325',
 
         /* Application Components */
         buttonBackground: '#473FCE',
@@ -17,8 +18,7 @@ export const darkTheme: DefaultTheme = {
         inputBorderColorFocus: '#4F46E5',
         inputPlaceholderColor: '#a3a3a3',
 
-        /* Loading */
-        loadingBackground: '#080325',
+        /* Loading */ 
         loadingColor: '#cfcfcf',
 
         /* Layout */
@@ -31,8 +31,7 @@ export const darkTheme: DefaultTheme = {
         navbarBackgroundHover: '#191A38',
         navbarBorderColor: '#E2E8F0',
 
-        /* Pages - Auth */
-        authBackground: '#080325',
+        /* Pages - Auth */ 
         authCardBackground: '#212121',
         authCardTitleColor: '#c9cbcf',
         authCardSubTitleColor: '#7d848c',
@@ -47,6 +46,18 @@ export const darkTheme: DefaultTheme = {
 
 
 
+
+        /* Neutral */
+        neutral100: '#FFFFFF',
+        neutral200: '#F8FAFC',
+        neutral300: '#EFF2F6',
+        neutral400: '#E2E8F0',
+        neutral500: '#CBCFD5',
+        neutral600: '#A4A9B0',
+        neutral700: '#79808A',
+        neutral800: '#5B6776',
+        neutral900: '#344055',
+        neutral1000: '#121212',
 
         /* Violet */
         violet100: '#FCFDFE',

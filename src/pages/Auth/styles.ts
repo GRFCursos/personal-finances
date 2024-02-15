@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom"
 
 export const Wrapper = styled.div`
-    background-color: ${(props) => props.theme.COLORS.authBackground};
+    background-color: ${(props) => props.theme.COLORS.pageBackground};
     min-height: 100vh;
     display: flex;
     justify-content: center; 

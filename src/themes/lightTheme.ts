@@ -3,6 +3,7 @@ export const lightTheme = {
         /* Application */
         primary: '#473FCE',
         primaryHover: '#8880E5',
+        pageBackground: '#E2E8F0',
 
         /* Application Components */
         buttonBackground: '#473FCE',
@@ -16,7 +17,6 @@ export const lightTheme = {
         inputPlaceholderColor: '#79808A',
 
         /* Loading */
-        loadingBackground: '#E2E8F0',
         loadingColor: '#5B6776',
 
         /* Layout */
@@ -30,7 +30,6 @@ export const lightTheme = {
         navbarBorderColor: '#E2E8F0',
 
         /* Pages - Auth */
-        authBackground: '#E2E8F0',
         authCardBackground: '#FFFFFF',
         authCardTitleColor: '#344055',
         authCardSubTitleColor: '#5B6776',
@@ -42,7 +41,7 @@ export const lightTheme = {
 
 
 
-        
+
 
         /* Neutral */
         neutral100: '#FFFFFF',
