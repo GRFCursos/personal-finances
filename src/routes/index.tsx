@@ -2,8 +2,9 @@ import { Route, Routes } from "react-router-dom"
 import { Home } from "../pages/Home"
 import { Auth } from "../pages/Auth"
 import { Layout } from "../components/Layout"
-import { NewTransaction } from "../pages/Transaction/New"
 import { NotFound } from "../pages/NotFound"
+import { NewTransaction } from "../pages/Transaction/New"
+import { EditTransaction } from "../pages/Transaction/Edit"
 
 export const MainRoutes = () => {
     return (
@@ -31,6 +32,7 @@ export const MainRoutes = () => {
 
                     <Route
                         path=":id/editar"
+                        element={<EditTransaction />}
                     />
                 </Route>
             </Route>
