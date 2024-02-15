@@ -7,10 +7,6 @@ export const Container = styled.div`
     height: 100%;
 `;
 
-export const ErrorContainer = styled.div` 
-    padding: 30px 50px 0px 50px;
-`
-
 export const Loading = styled.div`
     display: flex;
     align-items: center;

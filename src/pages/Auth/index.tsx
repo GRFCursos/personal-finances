@@ -14,7 +14,7 @@ import {
 import { Button } from "../../components/Button"
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
-import Error from "../../components/Error";
+import Error from "../../components/Alert";
 
 type Props = {
     type: 'signin' | 'signup'
