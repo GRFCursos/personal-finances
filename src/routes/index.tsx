@@ -28,7 +28,6 @@ export const MainRoutes = () => {
                 />
             </Route>
 
-
             <Route
                 path="*"
                 element={<NotFound />}

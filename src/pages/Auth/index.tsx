@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Input } from "../../components/Input"
+import TextInput from "../../components/TextInput"
 import {
     Card,
     CardBody,
@@ -9,13 +9,12 @@ import {
     Container,
     CardFooter,
     Link,
-    ErrorAlert,
     Wrapper
 } from "./styles"
 import { Button } from "../../components/Button"
-import { MdInfoOutline } from "react-icons/md";
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import Error from "../../components/Error";
 
 type Props = {
     type: 'signin' | 'signup'
@@ -25,7 +24,7 @@ export const Auth = ({ type }: Props) => {
     const [nameInput, setNameInput] = useState('')
     const [emailInput, setEmailInput] = useState('')
     const [passwordInput, setPasswordInput] = useState('')
-    const [showError, setShowError] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
 
     const { handleSignIn, handleSignUp } = useAuth()
 
@@ -35,14 +34,14 @@ export const Auth = ({ type }: Props) => {
         const [name, email, password] = [nameInput, emailInput, passwordInput]
 
         if ((type == 'signup' && !name) || !email || !password) {
-            setShowError('Preencha todos os campos!')
+            setErrorMessage('Preencha todos os campos!')
             return;
         }
 
         const request = await (type == 'signin' ? handleSignIn({ email, password }) : handleSignUp({ name, email, password }))
 
         if (request != true) {
-            setShowError(request)
+            setErrorMessage(request)
             return;
         }
 
@@ -51,18 +50,13 @@ export const Auth = ({ type }: Props) => {
     }
 
     useEffect(() => {
-        setShowError('')
+        setErrorMessage('')
     }, [type])
 
     return (
         <Wrapper>
             <Container>
-                {showError &&
-                    <ErrorAlert>
-                        <MdInfoOutline className="icon" />
-                        {showError}
-                    </ErrorAlert>
-                }
+                {errorMessage && <Error message={errorMessage} />}
 
                 <Card>
                     <CardHeader>
@@ -74,7 +68,7 @@ export const Auth = ({ type }: Props) => {
 
                     <CardBody>
                         {type == 'signup' &&
-                            <Input
+                            <TextInput
                                 value={nameInput}
                                 placeholder="Digite seu nome"
                                 onChange={e => setNameInput(e.target.value)}
@@ -82,13 +76,13 @@ export const Auth = ({ type }: Props) => {
                             />
                         }
 
-                        <Input
+                        <TextInput
                             value={emailInput}
                             placeholder="Digite seu email"
                             onChange={e => setEmailInput(e.target.value)}
                             borderRadius="sm"
                         />
-                        <Input
+                        <TextInput
                             value={passwordInput}
                             placeholder="Digite sua senha"
                             onChange={e => setPasswordInput(e.target.value)}

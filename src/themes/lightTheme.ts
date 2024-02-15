@@ -3,7 +3,11 @@ export const lightTheme = {
         /* Application */
         primary: '#473FCE',
         primaryHover: '#8880E5',
-        pageBackground: '#E2E8F0',
+        pageBackground: '#F8FAFC',
+        pageBackground800: '#E2E8F0',
+        textColor400: '#676e79',
+        textColor500: '#344055',
+        borderColor: '#E2E8F0',
 
         /* Application Components */
         buttonBackground: '#473FCE',
@@ -16,9 +20,6 @@ export const lightTheme = {
         inputBorderColorFocus: '#4F46E5',
         inputPlaceholderColor: '#79808A',
 
-        /* Loading */
-        loadingColor: '#5B6776',
-
         /* Layout */
         sidebarBackground: '#080325',
         sidebarColor: '#E2E8F0',
@@ -26,8 +27,7 @@ export const lightTheme = {
         sidebarBorderColor: '#344055',
         navbarBackground: '#F8FAFC',
         navbarColor: '#344055',
-        navbarBackgroundHover: '#E2E8F0',
-        navbarBorderColor: '#E2E8F0',
+        navbarBackgroundHover: '#E2E8F0', 
 
         /* Pages - Auth */
         authCardBackground: '#FFFFFF',

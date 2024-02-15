@@ -13,7 +13,7 @@ export const Content = styled.div`
 export const NavbarContent = styled.div`
     height: 70px; 
     background-color: ${(props) => props.theme.COLORS.navbarBackground};
-    border-bottom: 1px solid ${(props) => props.theme.COLORS.navbarBorderColor};
+    border-bottom: 1px solid ${(props) => props.theme.COLORS.borderColor};
 `
 
 export const BodyContent = styled.div`

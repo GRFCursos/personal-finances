@@ -5,7 +5,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    padding: 0 50px 0 30px;
+    padding: 0 60px 0 40px;
     user-select: none;
 `
 export const LeftSide = styled.div`

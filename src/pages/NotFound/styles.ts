@@ -15,7 +15,3 @@ export const Icon = styled(TbError404)`
     color: ${(props) => props.theme.COLORS.primary};
     font-size: 140px;
 `
-
-export const ButtonContainer = styled.div`
-    width: 160px;
-`

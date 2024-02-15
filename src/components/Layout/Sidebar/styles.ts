@@ -8,6 +8,7 @@ export const Container = styled.div<{ $expanded: boolean }>`
     background-color: ${(props) => props.theme.COLORS.sidebarBackground};
     width: ${(props) => props.$expanded ? '300px' : '79px'};
     transition: all .6s; 
+    border-right: 1px solid ${(props) => props.theme.COLORS.sidebarBorderColor};
 `
 
 export const Link = styled(LinkRouter)`

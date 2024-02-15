@@ -6,6 +6,10 @@ export const darkTheme: DefaultTheme = {
         primary: '#473FCE',
         primaryHover: '#8880E5',
         pageBackground: '#080325',
+        pageBackground800: '#080325',
+        textColor400: '#c2c2c2',
+        textColor500: '#cfcfcf',
+        borderColor: '#2b374a',
 
         /* Application Components */
         buttonBackground: '#473FCE',
@@ -18,20 +22,16 @@ export const darkTheme: DefaultTheme = {
         inputBorderColorFocus: '#4F46E5',
         inputPlaceholderColor: '#a3a3a3',
 
-        /* Loading */ 
-        loadingColor: '#cfcfcf',
-
         /* Layout */
         sidebarBackground: '#080325',
         sidebarColor: '#E2E8F0',
         sidebarBackgroundHover: '#191A38',
-        sidebarBorderColor: '#344055',
+        sidebarBorderColor: '#2b374a',
         navbarBackground: '#080325',
         navbarColor: '#cfcfcf',
         navbarBackgroundHover: '#191A38',
-        navbarBorderColor: '#344055',
 
-        /* Pages - Auth */ 
+        /* Pages - Auth */
         authCardBackground: '#212121',
         authCardTitleColor: '#c9cbcf',
         authCardSubTitleColor: '#7d848c',

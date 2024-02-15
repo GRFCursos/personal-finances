@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom"
 
 export const Wrapper = styled.div`
-    background-color: ${(props) => props.theme.COLORS.pageBackground};
+    background-color: ${(props) => props.theme.COLORS.pageBackground800};
     min-height: 100vh;
     display: flex;
     justify-content: center; 
@@ -15,23 +15,6 @@ export const Container = styled.div`
     justify-content: center;
     gap: 20px;
     width: 420px;
-`
-
-export const ErrorAlert = styled.div`
-    width: 100%;
-    display: flex;  
-    gap: 5px;
-    background-color: ${(props) => props.theme.COLORS.authErrorAlertBackground};
-    padding: 15px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    color: ${(props) => props.theme.COLORS.authErrorAlertColor};
-    font-size: ${(props) => props.theme.FONT_SIZES.sm};
-    font-weight: 700; 
-
-    .icon {
-        font-size: ${(props) => props.theme.FONT_SIZES.lg};
-    }
 `
 
 export const Card = styled.div`

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const ButtonElement = styled.button<{ $borderRadius: string, $size: string }>`
-    width: ${(props) => props.$borderRadius == 'rounded' ? (props.$size == 'sm' ? '40px' : '48px') : '100%'};
+export const ButtonElement = styled.button<{ $borderRadius: string, $size: string, $width: string }>`
+    width: ${(props) => props.$borderRadius == 'rounded' ? (props.$size == 'sm' ? '40px' : '48px') : props.$width};
     height: ${(props) => props.$borderRadius == 'rounded' && (props.$size == 'sm' ? '40px' : '48px')};
     display: flex;
     align-items: center;
