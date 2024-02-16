@@ -73,7 +73,7 @@ export const Footer = styled.div`
     margin: 10px; 
 `
 
-export const User = styled.div`
+export const User = styled.div<{ $isActive: boolean }>`
     display: flex;
     align-items: center;
     gap: 12px; 
@@ -81,6 +81,7 @@ export const User = styled.div`
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
+    background: ${(props) => props.$isActive && `${props.theme.COLORS.sidebarBackgroundHover}`};
     
     &:hover {
         background-color: ${(props) => props.theme.COLORS.sidebarBackgroundHover};

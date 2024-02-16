@@ -5,6 +5,7 @@ import { Layout } from "../components/Layout"
 import { NotFound } from "../pages/NotFound"
 import { NewTransaction } from "../pages/Transaction/New"
 import { EditTransaction } from "../pages/Transaction/Edit"
+import { Account } from "../pages/Account"
 
 export const MainRoutes = () => {
     return (
@@ -13,15 +14,21 @@ export const MainRoutes = () => {
                 path="/signin"
                 element={<Auth type="signin" />}
             />
+
             <Route
                 path="/signup"
                 element={<Auth type="signup" />}
-            />
+            /> 
 
             <Route element={<Layout />}>
                 <Route
                     index
                     element={<Home />}
+                />
+
+                <Route
+                    path="/account"
+                    element={<Account />}
                 />
 
                 <Route path="/transacoes">

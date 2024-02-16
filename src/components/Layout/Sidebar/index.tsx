@@ -69,7 +69,7 @@ export const Sidebar = () => {
 
             <Footer>
                 <Link to='/account'>
-                    <User>
+                    <User $isActive={pathname == '/account'}>
                         <UserAvatar>
                             {auth.user?.name.slice(0, 2)}
                         </UserAvatar>
