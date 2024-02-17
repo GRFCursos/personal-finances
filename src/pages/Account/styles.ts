@@ -22,6 +22,11 @@ export const Header = styled.div`
     border-bottom: 1px solid ${(props) => props.theme.COLORS.borderColor};
 `
 
+export const HeaderInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
 export const HeaderTitle = styled.span`
     font-size: ${(props) => props.theme.FONT_SIZES.xl};
     color: ${(props) => props.theme.COLORS.textColor500};

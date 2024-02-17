@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import TextInput from "../../components/TextInput"
-import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading } from "./styles"
+import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading, HeaderInfo } from "./styles"
 import { Button } from "../../components/Button"
 import { ScaleLoader } from "react-spinners"
 import { useTheme } from "styled-components"
 import Alert from "../../components/Alert"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
-import { updateUser } from "../../services/requests"
+import { deleteUser, updateUser } from "../../services/requests"
+import { useAuth } from "../../hooks/auth"
+import { setUser } from "../../redux/slices/authSlice"
 
 export const Account = () => {
     const user = useAppSelector((state) => state.auth.user)
@@ -18,6 +20,7 @@ export const Account = () => {
     const [emailValue, setEmailValue] = useState(user?.email as string)
     const [showAlert, setShowAlert] = useState({ type: "error", message: "", show: false })
 
+    const { handleSignOut } = useAuth()
     const theme = useTheme()
 
     const handleUpdateAccount = async () => {
@@ -27,14 +30,36 @@ export const Account = () => {
 
         if (request.error) {
             setShowAlert({ type: "error", message: request.error, show: true })
-            return;
+        }
+        
+        if (request.data) {
+            dispatch(setUser(request.data.user))
+            setShowAlert({ type: "success", message: 'Informações alteradas com sucesso!', show: true })
+        }
+    }
+
+    const handleDeleteAccount = async () => {
+        if (window.confirm("Tem certeza que deseja excluir sua conta?")) {
+            setLoadingRequest(true)
+            await deleteUser()
+            handleSignOut()
+            setLoadingRequest(false)
         }
     }
 
     return (
         <Container>
             <Header>
-                <HeaderTitle>Minha Conta</HeaderTitle>
+                <HeaderInfo>
+                    <HeaderTitle>Minha Conta</HeaderTitle>
+
+                    <Button
+                        onClick={handleDeleteAccount}
+                        width="120px"
+                    >
+                        Excluir conta
+                    </Button>
+                </HeaderInfo>
                 <HeaderSubtitle>Edite os dados da sua conta, e depois clique em salvar!</HeaderSubtitle>
             </Header>
 
