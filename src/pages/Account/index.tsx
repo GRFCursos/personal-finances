@@ -1,6 +1,6 @@
 import { useState } from "react"
 import TextInput from "../../components/TextInput"
-import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading, HeaderInfo } from "./styles"
+import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading, HeaderDeleteAccount, HeaderInfo } from "./styles"
 import { Button } from "../../components/Button"
 import { ScaleLoader } from "react-spinners"
 import { useTheme } from "styled-components"
@@ -31,7 +31,7 @@ export const Account = () => {
         if (request.error) {
             setShowAlert({ type: "error", message: request.error, show: true })
         }
-        
+
         if (request.data) {
             dispatch(setUser(request.data.user))
             setShowAlert({ type: "success", message: 'Informações alteradas com sucesso!', show: true })
@@ -41,8 +41,11 @@ export const Account = () => {
     const handleDeleteAccount = async () => {
         if (window.confirm("Tem certeza que deseja excluir sua conta?")) {
             setLoadingRequest(true)
+
+            // Delete user account and sign out
             await deleteUser()
             handleSignOut()
+
             setLoadingRequest(false)
         }
     }
@@ -52,15 +55,18 @@ export const Account = () => {
             <Header>
                 <HeaderInfo>
                     <HeaderTitle>Minha Conta</HeaderTitle>
+                    <HeaderSubtitle>Edite os dados da sua conta, e depois clique em salvar!</HeaderSubtitle>
+                </HeaderInfo>
 
+                <HeaderDeleteAccount>
                     <Button
                         onClick={handleDeleteAccount}
                         width="120px"
+                        size="md"
                     >
                         Excluir conta
                     </Button>
-                </HeaderInfo>
-                <HeaderSubtitle>Edite os dados da sua conta, e depois clique em salvar!</HeaderSubtitle>
+                </HeaderDeleteAccount>
             </Header>
 
             <Alert

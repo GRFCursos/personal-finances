@@ -1,3 +1,4 @@
+import { MdSearch } from "react-icons/md";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -15,7 +16,7 @@ export const Loading = styled.div`
 `
 
 export const Header = styled.div`
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     padding: 40px 60px 40px 50px;
     border-bottom: 1px solid ${(props) => props.theme.COLORS.borderColor};
@@ -23,7 +24,21 @@ export const Header = styled.div`
 
 export const HeaderInfo = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+`
+
+export const HeaderSearch = styled.div`
+    display: flex;
+    gap: 15px;
+    min-width: 25%; 
+`
+
+export const HeaderSearchInput = styled.div`
+    flex: 1;
+`
+
+export const HeaderSearchIcon = styled(MdSearch)`
+    font-size: ${(props) => props.theme.FONT_SIZES.md};
 `
 
 export const HeaderTitle = styled.span`
@@ -37,17 +52,7 @@ export const HeaderSubtitle = styled.span`
     color: ${(props) => props.theme.COLORS.textColor400};
 `
 
-export const HeaderDeleteAccount = styled.div`
-    
-`
-
-export const Body = styled.div` 
-    display: flex;
+export const Body = styled.div`
     padding: 30px 50px;
-    flex-direction: column;
-    gap: 20px; 
-`
-
-export const Footer = styled.div` 
-    padding: 5px 50px;
+    flex: 1;
 `

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import SelectInput from "../../../components/SelectInput"
 import TextInput from "../../../components/TextInput"
-import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading } from "./styles"
+import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading, HeaderInfo } from "./styles"
 import { Button } from "../../../components/Button"
 import { ScaleLoader } from "react-spinners"
 import { useTheme } from "styled-components"
@@ -45,8 +45,10 @@ export const NewTransaction = () => {
     return (
         <Container>
             <Header>
-                <HeaderTitle>Nova transação</HeaderTitle>
-                <HeaderSubtitle>Crie uma nova transação, preencha os campos abaixo e clique em salvar!</HeaderSubtitle>
+                <HeaderInfo>
+                    <HeaderTitle>Nova transação</HeaderTitle>
+                    <HeaderSubtitle>Crie uma nova transação, preencha os campos abaixo e clique em salvar!</HeaderSubtitle>
+                </HeaderInfo>
             </Header>
 
             <Alert

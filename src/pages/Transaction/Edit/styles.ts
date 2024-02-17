@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: ${(props) => props.theme.COLORS.pageBackground};
+    background-color: ${(props) => props.theme.COLORS.background};
     height: 100%;
 `;
 
@@ -16,10 +16,14 @@ export const Loading = styled.div`
 
 export const Header = styled.div`
     display: flex; 
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
     padding: 40px 50px;
     border-bottom: 1px solid ${(props) => props.theme.COLORS.borderColor};
+`
+
+export const HeaderInfo = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
 export const HeaderTitle = styled.span`

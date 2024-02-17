@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import SelectInput from "../../../components/SelectInput"
 import TextInput from "../../../components/TextInput"
-import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading } from "./styles"
+import { Container, Header, HeaderTitle, HeaderSubtitle, Body, Footer, Loading, HeaderInfo } from "./styles"
 import { Button } from "../../../components/Button"
 import { ScaleLoader } from "react-spinners"
 import { useTheme } from "styled-components"
@@ -68,8 +68,10 @@ export const EditTransaction = () => {
     return (
         <Container>
             <Header>
-                <HeaderTitle>Editar transação</HeaderTitle>
-                <HeaderSubtitle>Edite uma transação, altere os campos abaixo e clique em salvar!</HeaderSubtitle>
+                <HeaderInfo>
+                    <HeaderTitle>Editar transação</HeaderTitle>
+                    <HeaderSubtitle>Edite uma transação, altere os campos abaixo e clique em salvar!</HeaderSubtitle>
+                </HeaderInfo>
             </Header>
 
             <Alert

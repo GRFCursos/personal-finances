@@ -6,6 +6,7 @@ import { NotFound } from "../pages/NotFound"
 import { NewTransaction } from "../pages/Transaction/New"
 import { EditTransaction } from "../pages/Transaction/Edit"
 import { Account } from "../pages/Account"
+import { Transactions } from "../pages/Transaction/Transactions"
 
 export const MainRoutes = () => {
     return (
@@ -18,7 +19,7 @@ export const MainRoutes = () => {
             <Route
                 path="/signup"
                 element={<Auth type="signup" />}
-            /> 
+            />
 
             <Route element={<Layout />}>
                 <Route
@@ -32,6 +33,11 @@ export const MainRoutes = () => {
                 />
 
                 <Route path="/transacoes">
+                    <Route
+                        index
+                        element={<Transactions />}
+                    />
+
                     <Route
                         path="nova"
                         element={<NewTransaction />}

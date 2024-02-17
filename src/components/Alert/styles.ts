@@ -7,17 +7,17 @@ export const Container = styled.div<{ $show: boolean, $type: string }>`
     z-index: 1;
     display: flex;
     gap: 5px;
-    background-color: ${(props) => props.$type === 'error' ? '#D1493D' : '#2B825C'};
+    background-color: ${props => props.$type === 'error' ? props.theme.COLORS.danger : props.theme.COLORS.success};
     padding: 15px; 
     border-radius: 4px;
     transition: transform .6s, opacity .3s;
-    opacity: ${(props) => props.$show ? 1 : 0};
-    transform:  ${(props) => props.$show ? 'translateX(0)' : 'translateX(20%)'}; 
-    pointer-events: ${(props) => props.$show ? 'all' : 'none'};
+    opacity: ${props => props.$show ? 1 : 0};
+    transform:  ${props => props.$show ? 'translateX(0)' : 'translateX(20%)'}; 
+    pointer-events: ${props => props.$show ? 'all' : 'none'};
 
     .icon {
-        color: white;
-        font-size: ${(props) => props.theme.FONT_SIZES.lg};
+        color: ${props => props.theme.COLORS.white};
+        font-size: ${props => props.theme.FONT_SIZES.lg};
     }
 `
 
@@ -28,7 +28,7 @@ export const Content = styled.div`
 `
 
 export const Title = styled.span`
-    color: white;
-    font-size: ${(props) => props.theme.FONT_SIZES.sm};
+    color: ${props => props.theme.COLORS.white};
+    font-size: ${props => props.theme.FONT_SIZES.sm};
     font-weight: 700; 
 `
