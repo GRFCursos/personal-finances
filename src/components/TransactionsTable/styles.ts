@@ -28,7 +28,7 @@ export const TableHeadCell = styled.th`
         border-top-left-radius: 8px;
     }
 
-     &:last-child {
+    &:last-child {
         border-top-right-radius: 8px;
     }
 `

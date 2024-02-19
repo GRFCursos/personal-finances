@@ -36,7 +36,7 @@ export const lightTheme = {
         navbarBackgroundHover: '#E2E8F0',
 
         /* Pages - Auth */
-        authCardBackground: '#FFFFFF',
+        authCardBackground: '#f4f4f5de',
         authCardTitleColor: '#344055',
         authCardSubTitleColor: '#5B6776',
         authErrorAlertBackground: '#D1493D',
