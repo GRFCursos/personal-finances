@@ -33,15 +33,16 @@ export const TableHeadCell = styled.th`
     }
 `
 
-export const TableRow = styled.tr`
-   
+export const TableRow = styled.tr` 
 `
 
 export const TableCell = styled.td` 
     padding: 10px 20px; 
     color: ${props => props.theme.COLORS.textColor500};   
-    border-right: 1px solid ${(props) => props.theme.COLORS.tableHeaderBorderColor};
-    border-bottom: 1px solid ${(props) => props.theme.COLORS.tableHeaderBorderColor};
+
+    &:not(:last-child) {
+        border-right: 1px solid ${(props) => props.theme.COLORS.tableHeaderBorderColor};
+    } 
 `
 
 export const Actions = styled.div`
