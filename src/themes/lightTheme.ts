@@ -22,7 +22,7 @@ export const lightTheme = {
         inputBorderColor: '#E2E8F0',
         inputBorderColorFocus: '#4F46E5',
         inputPlaceholderColor: '#79808A',
-        tableHeaderBackground: '#E2E8F0',
+        tableHeaderBackground: '#e4eaf1',
         tableHeaderBorderColor: '#E2E8F0',
         tableRowHover: '#e4eaf17d', 
 
