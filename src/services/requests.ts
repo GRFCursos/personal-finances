@@ -1,5 +1,6 @@
 import { ApiDeleteUser, ApiGetUser, ApiSignIn, ApiSignUp, ApiUpdateUser } from "../@types/Auth"
-import { ApiDeleteTransaction, ApiGetTransaction, ApiGetTransactions, ApiNewTransaction, ApiUpdateTransaction, TransactionStatus } from "../@types/Transaction"
+import { ApiDeleteTransaction, ApiGetDashboard, ApiGetTransaction, ApiGetTransactions, ApiNewTransaction, ApiUpdateTransaction, TransactionStatus } from "../@types/Transaction"
+import { formatDate } from "../utils/formatDate"
 import { api } from "./api"
 
 // Auth
@@ -64,4 +65,21 @@ export const deleteTransaction = async (id: number) => {
     return await api<ApiDeleteTransaction>({
         endpoint: `transactions/${id}`, method: 'DELETE'
     })
+}
+
+// Dashboard
+export const getDashboard = async (month: string, year: string) => {
+    const response = await api<ApiGetDashboard>({ endpoint: 'dashboard' })
+
+    let balance = 0
+
+    if (response.data) {
+        response.data.transactions.map(transaction => {
+            const date = formatDate(transaction.created_at).split('/')
+
+            if (date[1] == month && date[2] == year) balance += transaction.amount
+        })
+    }
+
+    return balance
 }

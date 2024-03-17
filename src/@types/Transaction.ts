@@ -9,6 +9,8 @@ export type Transaction = {
     user_id: number
 }
 
+export type TransactionDashboard = Omit<Transaction, 'id' | 'title' | 'status' | 'user_id'>
+
 export type ApiGetTransactions = {
     transactions: {
         itemsReceived: number,
@@ -24,6 +26,10 @@ export type ApiGetTransactions = {
 
 export type ApiGetTransaction = {
     transaction: Transaction
+}
+
+export type ApiGetDashboard = {
+    transactions: TransactionDashboard[]
 }
 
 export type ApiNewTransaction = {

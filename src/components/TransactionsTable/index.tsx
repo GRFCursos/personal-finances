@@ -1,6 +1,8 @@
 import { useTheme } from "styled-components"
 import { Transaction } from "../../@types/Transaction"
 import { ActionBtn, Actions, Container, DeleteIcon, EditIcon, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./styles"
+import { formatDate } from "../../utils/formatDate"
+import { formatValue } from "../../utils/formatValue"
 
 type Props = {
     data: Transaction[],
@@ -10,14 +12,6 @@ type Props = {
 
 export const TransactionsTable = ({ data, onEdit, onDelete }: Props) => {
     const theme = useTheme()
-
-    const formatDate = (date: number) => (
-        new Intl.DateTimeFormat('pt-BR').format(date)
-    )
-
-    const formatValue = (value: number) => (
-        new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
-    )
 
     return (
         <Container>
