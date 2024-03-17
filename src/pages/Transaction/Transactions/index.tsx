@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Container, Header, HeaderInfo, HeaderSearchInput, HeaderSearch, HeaderSubtitle, HeaderTitle, Loading, HeaderSearchIcon, Body } from "./styles"
+import { Container, Header, HeaderInfo, HeaderSearchInput, HeaderSearch, HeaderSubtitle, HeaderTitle, Loading, HeaderSearchIcon, Body, Pagination, PaginationItem, Empty, EmptyLabel, EmptyIcon } from "./styles"
 import { ScaleLoader } from "react-spinners"
 import { useTheme } from "styled-components"
 import Alert from "../../../components/Alert"
@@ -9,6 +9,7 @@ import { TransactionsTable } from "../../../components/TransactionsTable"
 import { deleteTransaction, getTransactions } from "../../../services/requests"
 import { Transaction } from "../../../@types/Transaction"
 import { useNavigate } from "react-router-dom"
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 export const Transactions = () => {
     const [loadingRequest, setLoadingRequest] = useState(true)
@@ -16,23 +17,35 @@ export const Transactions = () => {
     const [showAlert, setShowAlert] = useState({ type: "error", message: "", show: false })
     const [transactions, setTransactions] = useState<Transaction[]>([])
     const [transactionsFiltered, setTransactionsFiltered] = useState<Transaction[]>([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(1)
 
     const theme = useTheme()
     const navigate = useNavigate()
 
     const handleGetTransactions = async () => {
         setLoadingRequest(true)
-        const request = await getTransactions()
+        const request = await getTransactions(currentPage)
         setLoadingRequest(false)
 
         if (request.data) {
-            setTransactions(request.data?.transactions)
-            setTransactionsFiltered(request.data?.transactions)
+            if (!searchValue) setTransactionsFiltered(request.data?.transactions.items)
+
+            setTransactions(request.data?.transactions.items)
+            setTotalPages(request.data?.transactions.pageTotal)
         }
 
         if (request.error) {
             setShowAlert({ type: "error", message: request.error, show: true })
         }
+    }
+
+    const handlePreviousPage = () => {
+        if (currentPage > 1) setCurrentPage(currentPage - 1)
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1)
     }
 
     const handleSearch = () => {
@@ -46,12 +59,14 @@ export const Transactions = () => {
             setLoadingRequest(true)
             await Promise.all([deleteTransaction(id), handleGetTransactions()])
             setLoadingRequest(false)
+
+            setShowAlert({ type: "success", message: "Transação excluída com sucesso!", show: true })
         }
     }
 
     useEffect(() => {
         handleGetTransactions()
-    }, [])
+    }, [currentPage])
 
     return (
         <Container>
@@ -94,11 +109,40 @@ export const Transactions = () => {
 
             {!loadingRequest &&
                 <Body>
-                    <TransactionsTable
-                        data={transactionsFiltered}
-                        onEdit={handleEditTransaction}
-                        onDelete={handleDeleteTransaction}
-                    />
+                    {transactionsFiltered.length === 0 ?
+                        <Empty>
+                            <EmptyIcon />
+                            <EmptyLabel>
+                                Nenhuma transação encontrada
+                            </EmptyLabel>
+                        </Empty>
+                        :
+                        <TransactionsTable
+                            data={transactionsFiltered}
+                            onEdit={handleEditTransaction}
+                            onDelete={handleDeleteTransaction}
+                        />
+                    }
+
+                    <Pagination>
+                        <PaginationItem $isLeft onClick={handlePreviousPage}>
+                            <MdOutlineKeyboardArrowLeft size={21} />
+                        </PaginationItem>
+
+                        {[...Array(totalPages)].map((_, index) => (
+                            <PaginationItem
+                                key={index}
+                                $active={index + 1 === currentPage}
+                                onClick={() => setCurrentPage(index + 1)}
+                            >
+                                {index + 1}
+                            </PaginationItem>
+                        ))}
+
+                        <PaginationItem $isRight onClick={handleNextPage}>
+                            <MdOutlineKeyboardArrowRight size={21} />
+                        </PaginationItem>
+                    </Pagination>
                 </Body>
             }
         </Container>

@@ -35,9 +35,10 @@ export const deleteUser = async () => {
 }
 
 // Transaction
-export const getTransactions = async () => {
+export const getTransactions = async (page: number) => {
     return await api<ApiGetTransactions>({
-        endpoint: 'transactions'
+        endpoint: 'transactions',
+        data: { page }
     })
 }
 

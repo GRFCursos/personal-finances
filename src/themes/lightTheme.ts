@@ -3,12 +3,12 @@ export const lightTheme = {
         /* Application */
         primary: '#473FCE',
         primaryHover: '#8880E5',
-        background: '#F8FAFC', 
+        background: '#F8FAFC',
         textColor400: '#676e79',
         textColor500: '#344055',
         borderColor: '#E2E8F0',
         danger: '#D1493D',
-        success: '#2B825C', 
+        success: '#2B825C',
         warning: '#eba800',
         white: '#FFFFFF',
 
@@ -24,7 +24,7 @@ export const lightTheme = {
         inputPlaceholderColor: '#79808A',
         tableHeaderBackground: '#e4eaf1',
         tableHeaderBorderColor: '#E2E8F0',
-        tableRowHover: '#e4eaf17d', 
+        tableRowHover: '#e4eaf17d',
 
         /* Layout */
         sidebarBackground: '#080325',
@@ -40,7 +40,7 @@ export const lightTheme = {
         authCardTitleColor: '#344055',
         authCardSubTitleColor: '#5B6776',
         authErrorAlertBackground: '#D1493D',
-        authErrorAlertColor: '#FFFFFF', 
+        authErrorAlertColor: '#FFFFFF',
     },
     FONT_SIZES: {
         sm: '.9rem',

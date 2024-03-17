@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    height: 100vh;  
+    height: 100vh;
     overflow: hidden;
 `
 
@@ -17,5 +17,7 @@ export const NavbarContent = styled.div`
 `
 
 export const BodyContent = styled.div`
-    height: calc(100vh - 70px); 
+    height: calc(100vh - 70px);
+    background-color: ${(props) => props.theme.COLORS.background};
+    overflow: auto;
 `

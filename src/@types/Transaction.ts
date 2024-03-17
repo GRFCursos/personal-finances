@@ -1,4 +1,5 @@
 export type TransactionStatus = "pending" | "completed"
+
 export type Transaction = {
     id: number,
     title: string,
@@ -9,7 +10,16 @@ export type Transaction = {
 }
 
 export type ApiGetTransactions = {
-    transactions: Transaction[]
+    transactions: {
+        itemsReceived: number,
+        curPage: number,
+        nextPage?: string,
+        prevPage?: string,
+        offset: number,
+        itemsTotal: number,
+        pageTotal: number,
+        items: Transaction[]
+    }
 }
 
 export type ApiGetTransaction = {
