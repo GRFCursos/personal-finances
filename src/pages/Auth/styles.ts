@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const Card = styled.div`
     width: 100%;
-    background-color: ${(props) => props.theme.COLORS.authCardBackground};
+    border: 1px solid ${(props) => props.theme.COLORS.borderColor};
     padding: 30px;
     box-shadow: black 0px 3px 7px -6px;
     border-radius: 4px;

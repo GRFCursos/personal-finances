@@ -117,32 +117,34 @@ export const Transactions = () => {
                             </EmptyLabel>
                         </Empty>
                         :
-                        <TransactionsTable
-                            data={transactionsFiltered}
-                            onEdit={handleEditTransaction}
-                            onDelete={handleDeleteTransaction}
-                        />
+                        <>
+                            <TransactionsTable
+                                data={transactionsFiltered}
+                                onEdit={handleEditTransaction}
+                                onDelete={handleDeleteTransaction}
+                            />
+
+                            <Pagination>
+                                <PaginationItem $isLeft onClick={handlePreviousPage}>
+                                    <MdOutlineKeyboardArrowLeft size={21} />
+                                </PaginationItem>
+
+                                {[...Array(totalPages)].map((_, index) => (
+                                    <PaginationItem
+                                        key={index}
+                                        $active={index + 1 === currentPage}
+                                        onClick={() => setCurrentPage(index + 1)}
+                                    >
+                                        {index + 1}
+                                    </PaginationItem>
+                                ))}
+
+                                <PaginationItem $isRight onClick={handleNextPage}>
+                                    <MdOutlineKeyboardArrowRight size={21} />
+                                </PaginationItem>
+                            </Pagination>
+                        </>
                     }
-
-                    <Pagination>
-                        <PaginationItem $isLeft onClick={handlePreviousPage}>
-                            <MdOutlineKeyboardArrowLeft size={21} />
-                        </PaginationItem>
-
-                        {[...Array(totalPages)].map((_, index) => (
-                            <PaginationItem
-                                key={index}
-                                $active={index + 1 === currentPage}
-                                onClick={() => setCurrentPage(index + 1)}
-                            >
-                                {index + 1}
-                            </PaginationItem>
-                        ))}
-
-                        <PaginationItem $isRight onClick={handleNextPage}>
-                            <MdOutlineKeyboardArrowRight size={21} />
-                        </PaginationItem>
-                    </Pagination>
                 </Body>
             }
         </Container>

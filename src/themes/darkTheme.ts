@@ -39,7 +39,6 @@ export const darkTheme: DefaultTheme = {
         navbarBackgroundHover: '#191A38',
 
         /* Pages - Auth */
-        authCardBackground: '#212121',
         authCardTitleColor: '#c9cbcf',
         authCardSubTitleColor: '#7d848c',
         authErrorAlertBackground: '#961408ed',
