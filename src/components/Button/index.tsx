@@ -2,7 +2,7 @@ import { ButtonElement } from "./styles"
 
 type Props = {
     children: React.ReactNode,
-    onClick: () => void,
+    onClick?: () => void,
     size?: 'sm' | 'md',
     borderRadius?: 'sm' | 'md' | 'rounded',
     width?: string

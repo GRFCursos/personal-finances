@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div` 
@@ -35,9 +36,72 @@ export const HeaderFilter = styled.div`
     width: 320px;
 `
 
-export const Body = styled.div`
-    padding: 30px 50px 60px 50px;
+export const Loading = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
-    background-color: red;
 `
 
+export const Body = styled.div`
+    padding: 40px 50px;
+    flex: 1; 
+`
+
+export const BodyRow = styled.div`
+    display: flex;
+    gap: 30px;
+`
+
+export const InformationCard = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    border: 1px solid ${(props) => props.theme.COLORS.borderColor};
+    padding: 35px 30px;
+    border-radius: 10px; 
+`
+
+export const InformationCardContent = styled.span`  
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+`
+
+export const InformationCardContentValue = styled.span`
+    color: ${(props) => props.theme.COLORS.textColor500};
+    font-weight: 700;
+    font-size: ${(props) => props.theme.FONT_SIZES.lg};
+`
+
+export const InformationCardContentLabel = styled.span`
+    color: ${(props) => props.theme.COLORS.textColor400};
+    font-weight: 600; 
+`
+
+export const NewTransactionCard = styled(Link)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    gap: 25px; 
+    border: 1px solid ${(props) => props.theme.COLORS.borderColor};
+    padding:  30px;
+    background: ${(props) => props.theme.COLORS.primaryBackgroundExtraLight};
+    border-radius: 10px;    
+    cursor: pointer;
+    transition: all .3s;
+    
+    &:hover {
+        border-color: ${(props) => props.theme.COLORS.primary};
+    }
+`
+
+export const NewTransactionCardLabel = styled.span`
+    color: ${(props) => props.theme.COLORS.primary};
+    font-size: ${(props) => props.theme.FONT_SIZES.lg};
+    font-weight: 800; 
+`

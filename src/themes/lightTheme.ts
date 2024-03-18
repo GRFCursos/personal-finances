@@ -3,6 +3,7 @@ export const lightTheme = {
         /* Application */
         primary: '#473FCE',
         primaryHover: '#8880E5',
+        primaryBackgroundExtraLight: '#F7F8FD',
         background: '#F8FAFC',
         textColor400: '#676e79',
         textColor500: '#344055',

@@ -72,6 +72,8 @@ export const getDashboard = async (month: string, year: string) => {
     const response = await api<ApiGetDashboard>({ endpoint: 'dashboard' })
 
     let balance = 0
+    let pending_transactions = response.data?.pending_transactions ?? 0
+    let completed_transactions = response.data?.completed_transactions ?? 0
 
     if (response.data) {
         response.data.transactions.map(transaction => {
@@ -81,5 +83,5 @@ export const getDashboard = async (month: string, year: string) => {
         })
     }
 
-    return balance
+    return { balance, pending_transactions, completed_transactions }
 }

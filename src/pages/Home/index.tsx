@@ -1,11 +1,27 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 import SelectInput from "../../components/SelectInput"
 import { getDashboard } from "../../services/requests"
-import { Body, Container, Header, HeaderFilter, HeaderInfo, HeaderSubtitle, HeaderTitle } from "./styles"
+import { Body, Container, Header, HeaderFilter, HeaderInfo, HeaderSubtitle, HeaderTitle, Loading, InformationCard, InformationCardContent, InformationCardContentValue, InformationCardContentLabel, BodyRow, NewTransactionCard, NewTransactionCardLabel } from "./styles"
+import { ScaleLoader } from "react-spinners"
+import { useTheme } from "styled-components"
+import { FcCancel } from "react-icons/fc";
+import { FcBullish } from "react-icons/fc";
+import { formatValue } from "../../utils/formatValue"
+import { FcOk } from "react-icons/fc";
+import { Button } from "../../components/Button"
+import { MdAdd } from "react-icons/md"
 
 export const Home = () => {
+    const [loadingRequest, setLoadingRequest] = useState(true)
     const [monthSelected, setMonthSelected] = useState((new Date().getMonth() + 1).toString().padStart(2, '0'))
     const [yearSelected, setYearSelected] = useState((new Date().getFullYear()).toString())
+    const [dataDashboard, setDataDashboard] = useState({
+        balance: 0,
+        pending_transactions: 0,
+        completed_transactions: 0
+    })
+
+    const theme = useTheme()
 
     const handleMonthSelected = (e: ChangeEvent<HTMLSelectElement>) => setMonthSelected(e.target.value)
     const handleYearSelected = (e: ChangeEvent<HTMLSelectElement>) => setYearSelected(e.target.value)
@@ -32,6 +48,17 @@ export const Home = () => {
         return monthsArray
     }
 
+    const handleGetDashboard = async () => {
+        setLoadingRequest(true)
+        const reponse = await getDashboard(monthSelected, yearSelected)
+        setLoadingRequest(false)
+        setDataDashboard(reponse)
+    }
+
+    useEffect(() => {
+        handleGetDashboard()
+    }, [monthSelected, yearSelected])
+
     return (
         <Container>
             <Header>
@@ -54,9 +81,73 @@ export const Home = () => {
                 </HeaderFilter>
             </Header>
 
-            <Body>
+            {loadingRequest &&
+                <Loading>
+                    <ScaleLoader color={theme.COLORS.primary} />
+                </Loading>
+            }
 
-            </Body>
-        </Container>
+            {!loadingRequest &&
+                <Body>
+                    <BodyRow>
+                        <InformationCard>
+                            <FcBullish size={32} />
+
+                            <InformationCardContent>
+                                <InformationCardContentValue
+                                    style={{ color: dataDashboard.balance >= 0 ? theme.COLORS.success : theme.COLORS.danger }}
+                                >
+                                    {formatValue(dataDashboard.balance)}
+                                </InformationCardContentValue>
+
+                                <InformationCardContentLabel>
+                                    Saldo total atual no mês!
+                                </InformationCardContentLabel>
+                            </InformationCardContent>
+                        </InformationCard>
+
+                        <InformationCard>
+                            <FcCancel size={32} />
+
+                            <InformationCardContent>
+                                <InformationCardContentValue>
+                                    {dataDashboard.pending_transactions}
+                                </InformationCardContentValue>
+
+                                <InformationCardContentLabel>
+                                    Transações pendentes!
+                                </InformationCardContentLabel>
+                            </InformationCardContent>
+                        </InformationCard>
+
+                        <InformationCard>
+                            <FcOk size={32} />
+
+                            <InformationCardContent>
+                                <InformationCardContentValue>
+                                    {dataDashboard.completed_transactions}
+                                </InformationCardContentValue>
+
+                                <InformationCardContentLabel>
+                                    Transações concluídas!
+                                </InformationCardContentLabel>
+                            </InformationCardContent>
+                        </InformationCard>
+                    </BodyRow>
+
+                    <BodyRow style={{ marginTop: 30 }}>
+                        <NewTransactionCard to="/transacoes/nova" >
+                            <Button borderRadius="rounded">
+                                <MdAdd size={21} />
+                            </Button>
+
+                            <NewTransactionCardLabel>
+                                Criar nova transação
+                            </NewTransactionCardLabel>
+                        </NewTransactionCard>
+                    </BodyRow>
+                </Body>
+            }
+        </Container >
     )
 }

@@ -40,7 +40,7 @@ export const TransactionsTable = ({ data, onEdit, onDelete }: Props) => {
                                 {formatDate(transaction.created_at)}
                             </TableCell>
                             <TableCell>
-                                {transaction.status === 'pending' ? 'Pendente' : 'Pago'}
+                                {transaction.status === 'pending' ? 'Pendente' : 'Concluída'}
                             </TableCell>
                             <TableCell
                                 style={{ color: transaction.amount >= 0 ? theme.COLORS.success : theme.COLORS.danger }}

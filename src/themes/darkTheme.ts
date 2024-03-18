@@ -5,7 +5,8 @@ export const darkTheme: DefaultTheme = {
         /* Application */
         primary: '#473FCE',
         primaryHover: '#8880E5',
-        background: '#080325',  
+        primaryBackgroundExtraLight: '#12113c7d',
+        background: '#080325',
         textColor400: '#c2c2c2',
         textColor500: '#cfcfcf',
         borderColor: '#2b374a',
@@ -42,7 +43,7 @@ export const darkTheme: DefaultTheme = {
         authCardTitleColor: '#c9cbcf',
         authCardSubTitleColor: '#7d848c',
         authErrorAlertBackground: '#961408ed',
-        authErrorAlertColor: '#FFFFFF', 
+        authErrorAlertColor: '#FFFFFF',
     },
     FONT_SIZES: {
         sm: '.9rem',
