@@ -29,6 +29,6 @@ export const Select = styled.select`
     }
 
     &:focus {
-        border-color: ${(props) => props.theme.COLORS.inputBorderColorFocus};;
+        border-color: ${(props) => props.theme.COLORS.inputBorderColorFocus};
     }
 `
