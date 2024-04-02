@@ -33,6 +33,6 @@ export const Input = styled.input<{ $borderRadius?: 'sm' | 'md' }>`
     }
 
     &:focus {
-        border-color: ${(props) => props.theme.COLORS.inputBorderColorFocus};;
+        border-color: ${(props) => props.theme.COLORS.inputBorderColorFocus};
     }
 `
