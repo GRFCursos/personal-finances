@@ -48,7 +48,7 @@ export const NavigationItem = styled.div<{ $isActive: boolean }>`
     cursor: pointer; 
     overflow: hidden;
     color: ${(props) => props.theme.COLORS.sidebarColor};
-    background: ${(props) => props.$isActive && `${props.theme.COLORS.sidebarBackgroundHover}`};
+    background-color: ${(props) => props.$isActive && `${props.theme.COLORS.sidebarBackgroundHover}`};
  
     &:hover {
         background-color: ${(props) => props.theme.COLORS.sidebarBackgroundHover};
@@ -81,7 +81,7 @@ export const User = styled.div<{ $isActive: boolean }>`
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
-    background: ${(props) => props.$isActive && `${props.theme.COLORS.sidebarBackgroundHover}`};
+    background-color: ${(props) => props.$isActive && `${props.theme.COLORS.sidebarBackgroundHover}`};
     
     &:hover {
         background-color: ${(props) => props.theme.COLORS.sidebarBackgroundHover};

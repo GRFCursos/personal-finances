@@ -33,7 +33,7 @@ export const Sidebar = () => {
     const auth = useAppSelector((state) => state.auth)
     const { pathname } = useLocation();
 
-    const toggleExpansion = () => setIsExpanded(!isExpanded)
+    const handleToggleExpand = () => setIsExpanded(!isExpanded)
 
     return (
         <Container $expanded={isExpanded}>
@@ -47,7 +47,7 @@ export const Sidebar = () => {
                     </Link>
                 }
 
-                <Button onClick={toggleExpansion} borderRadius="rounded">
+                <Button onClick={handleToggleExpand} borderRadius="rounded">
                     <HeaderIcon />
                 </Button>
             </Header>
