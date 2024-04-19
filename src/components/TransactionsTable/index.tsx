@@ -28,8 +28,8 @@ export const TransactionsTable = ({ data, onEdit, onDelete }: Props) => {
                 </TableHead>
 
                 <TableBody>
-                    {data.map((transaction, key) => (
-                        <TableRow key={key}>
+                    {data.map(transaction => (
+                        <TableRow key={transaction.id}>
                             <TableCell>
                                 #{transaction.id}
                             </TableCell>
