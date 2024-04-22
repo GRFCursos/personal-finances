@@ -57,7 +57,8 @@ export const Transactions = () => {
     const handleDeleteTransaction = async (id: number) => {
         if (window.confirm("Tem certeza que deseja excluir esta transação?")) {
             setLoadingRequest(true)
-            await Promise.all([deleteTransaction(id), handleGetTransactions()])
+            await deleteTransaction(id)
+            await handleGetTransactions()
             setLoadingRequest(false)
 
             setShowAlert({ type: "success", message: "Transação excluída com sucesso!", show: true })
